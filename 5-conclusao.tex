@@ -1,0 +1,38 @@
+\begin{frame}{Outros Resultados}
+    \begin{thm}[\cite{Cygan15}]
+        Existem algoritmos FPT (parametrização natural) para os seguintes problemas em grafos planares:
+
+        \begin{enumerate}[]
+            \item Isomorfismo de Subgrafos;
+            \item Bisseção Mínima.
+        \end{enumerate}
+    \end{thm}
+\end{frame}
+
+\begin{frame}{Resultado Geral}
+    A única propriedade dos grafos planares que utilizamos é serem fechados por menores e terem \textbf{\emph{largura arbórea local}} limitada.
+    \pause \bigbreak
+    Uma classe de grafos $\mathcal{G}$ tem \textbf{\emph{largura arbórea local}} limitada se, para todo $G \in \mathcal{G}$ e $v \in V(G)$, vale $tw(G_v^r) \le f(r)$, onde $G_v^r$ é o subgrafo induzido pelos vértices a distância até $r$ de $v$.
+\end{frame}
+
+\begin{frame}{Limitações}
+    \centering
+    A técnica de \emph{Shifting}/Baker é eficaz para problemas ``locais''~\dots
+    \bigbreak\pause
+    \dots~mas falha em casos como TSP ou Árvore de Steiner.
+\end{frame}
+
+\begin{frame}{Generalização}
+    \centering\large
+    \textbf{\emph{Decomposição por contração}} em grafos livres de $H$:
+    \pause
+    \bigbreak
+    \begin{thm}[\cite{Dem11}]
+        Para todo grafo fixo $H$, existe uma constante $c_H$ tal que, \pause
+        para todo inteiro $k \geq 1$, qualquer grafo livre de $H$-menores pode ter suas arestas particionadas em $k + 1$ classes de cor, \pause
+        de modo que a contração de qualquer uma dessas classes resulta em um grafo com largura arbórea no máximo $c_H \cdot k$.
+        \pause
+        \bigbreak
+        Além disso, tal partição pode ser encontrada em tempo polinomial.
+    \end{thm}
+\end{frame}

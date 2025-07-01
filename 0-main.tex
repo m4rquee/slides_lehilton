@@ -1,0 +1,172 @@
+% \documentclass[handout, xcolor=table]{beamer}
+\documentclass[xcolor=table]{beamer}
+
+\usepackage{fixcmex} % fix binomials
+\usepackage{xskak}
+
+%-----------------------[ Macros ]----------------------------------------------%
+
+\input{macros}
+
+\newcounter{finalframe}
+\newcommand{\stopcounter}{
+  \setcounter{finalframe}{\insertframenumber}
+}
+
+\newcommand{\resumecounter}{
+  \setcounter{framenumber}{\value{finalframe}}
+}
+
+\newcommand{\inccounter}{
+  \setcounter{framenumber}{\value{finalframe} + 1}
+}
+
+%-----------------------[ Template ]-------------------------------------------%
+
+\mode<presentation> {
+    \usetheme[sectionpage=none, progressbar=frametitle, block=fill]{moloch} % modern fork of the metropolis theme
+    \setbeamertemplate{footline}[frame number] % to replace the footer line in all slides with a simple slide count
+}
+\setbeamerfont{footnote}{size=\tiny}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{footnote}{%
+    \hangpara{2em}{1}%
+    \makebox[2em][l]{\tiny\insertfootnotemark}%
+    \hspace{-1em}\tiny\insertfootnotetext\par\vspace{0.2cm}%
+}
+\setbeamercolor{background canvas}{bg=white}
+
+% Enumerate setup:
+\def\labelenumi{\textbf{\arabic{enumi}.}}
+
+% Lists setup:
+\beamerdefaultoverlayspecification{<+->}
+
+%-----------------------[ (Sub)Section Slides ]--------------------------------%
+
+\AtBeginSection[]{
+    \begin{frame}
+    \vfill
+    \centering
+    \setbeamercolor{title}{bg=mDarkTeal,fg=black!2}
+    \begin{beamercolorbox}[sep=8pt,center,shadow=true]{title}
+        \usebeamerfont{title}\insertsectionhead\par%
+    \end{beamercolorbox}
+    \vfill
+    \end{frame}
+}
+
+% \makeatletter
+% \newcommand{\subseqslide}{
+% \begin{frame}
+%   \setbeamercolor{title}{bg=mDarkTeal,fg=black!2}
+%   \centering
+%   \begin{minipage}{22em}
+%     \raggedright
+%     \begin{beamercolorbox}[sep=8pt,center,shadow=true]{title}
+%         \usebeamerfont{title}\insertsectionhead\par%
+%     \end{beamercolorbox}
+%     \usebeamertemplate*{progress bar in section page}
+%     \par
+%     \ifx\insertsubsectionhead\@empty\else%
+%       \vskip-.6\baselineskip
+%       \usebeamercolor[fg]{subsection title}%
+%       \usebeamerfont{subsection title}%
+%       \insertsubsectionhead{}
+%     \fi
+%   \end{minipage}
+%   \par
+%   \vspace{\baselineskip}
+% \end{frame}
+% }
+
+% \AtBeginSubsection[]{%
+% \subseqslide
+
+% \setcounter{tocdepth}{3}
+% \frame<beamer>{ 
+%   \frametitle{}
+%   \centering
+%   \begin{minipage}{20em}
+%   \tableofcontents[
+%     currentsection,currentsubsection,sectionstyle=show/hide,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/show/hide/hide
+%   ]    
+%   \end{minipage}
+% }
+% }
+% \makeatother
+
+%-----------------------[ Title page ]-----------------------------------------%
+
+\title{Técnica de \emph{Shifting}}
+
+\titlegraphic{
+  \includegraphics[height=1.cm]{logos/ic.png}
+  \hfill
+  \includegraphics[height=0.85cm]{logos/loco.png}
+}
+
+\author{
+Lucas de Oliveira Silva - 220715
+\and \\
+Ricardo Andres Marino Rojas - 175824
+}
+
+\institute{MO829 - Algoritmos Parametrizados}
+
+\date{\vfill\hfill 1° de Julho de 2025}
+
+\begin{document}
+
+\hyphenpenalty=10000
+
+\begin{frame}[plain]
+  \titlepage
+\end{frame}
+
+%------------------------------------------------------------------------------%
+
+\section{Introdução}
+\input{1-intro}
+
+\section{Preliminares}
+\input{2-preliminares}
+
+\section{Largura Arbórea dos $k$-outerplanar}
+\input{3-treewidth}
+
+\section{Resultado Principal}
+\input{4-resultado}
+
+\section{Conclusão}
+\input{5-conclusao}
+
+\begin{frame}
+    \textbf{Exercício.} Apresente, usando a técnica de \emph{shifting}, um algoritmo FPT para o problema do Empacotamento Máximo de Triângulos (vértices disjuntos) em grafos planares.
+    \pause
+
+    \vfill
+    \centering
+    \LARGE{\centerline{Obrigado a todos pela atenção...}}
+    \Huge{\centerline{Alguma Dúvida?}}
+\end{frame}
+
+%-----------------------[ Bibliography ]---------------------------------------%
+
+\appendix
+
+\beamerdefaultoverlayspecification{}
+\setbeamertemplate{bibliography item}[text]
+\begin{frame}
+  \frametitle{Bibliografia}
+  {
+    \tiny
+    \bibliographystyle{alpha}
+    \bibliography{bibliography}
+  }
+\end{frame}
+
+%-----------------------[ Backup ]---------------------------------------------%
+
+
+\end{document}
